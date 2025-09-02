@@ -16,5 +16,8 @@
     "url": "https://github.com/lucaszstrr/consulta-car/issues"
   },
   "homepage": "https://github.com/lucaszstrr/consulta-car#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "bootstrap": "^5.3.8"
+  }
 }
