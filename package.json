@@ -18,6 +18,10 @@
   "homepage": "https://github.com/lucaszstrr/consulta-car#readme",
   "description": "",
   "dependencies": {
-    "bootstrap": "^5.3.8"
+    "bootstrap": "^5.3.8",
+    "jquery": "^3.7.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
