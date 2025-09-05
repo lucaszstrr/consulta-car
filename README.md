@@ -12,7 +12,7 @@ O sistema permite visualizar detalhes dos automóveis, acessar preços, cadastra
 ---
 
 ## 🎨 Prototipação no Figma
-[🔗 Link para o protótipo no Figma]()
+[🔗 Link para o protótipo no Figma](https://www.figma.com/design/WlsmbCIjGh5ClupMxbRhWG/ConsultaCar?node-id=4-32&t=urjtQK8fb4Xp764d-1)
 
 ---
 
@@ -74,3 +74,4 @@ O sistema permite visualizar detalhes dos automóveis, acessar preços, cadastra
 - [] **ID 24** - Consome APIs públicas (ex.: ViaCEP).  
 
 ---
+
