@@ -19,7 +19,8 @@
   "description": "",
   "dependencies": {
     "bootstrap": "^5.3.8",
-    "jquery": "^3.7.1"
+    "jquery": "^3.7.1",
+    "sass": "^1.93.2"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0"
