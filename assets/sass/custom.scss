@@ -1,9 +1,14 @@
-@import 'tokens';
+//Fonte Inter
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-@import 'variables';
+//Cores
+$primary: #E30613;
+$secondary: #B0000D;
 
-@import 'mixins';
 
+//Variaveis Bootstrap
+$font-family-base: 'Inter', sans-serif;
+
+
+//Importa Bootstrap
 @import "../../node_modules/bootstrap/scss/bootstrap";
-
-@import 'base';
