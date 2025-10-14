@@ -4,11 +4,39 @@
 //Cores
 $primary: #E30613;
 $secondary: #B0000D;
-
+$tertiary: #ffffff;
+$quaternary: #000000;
+$quinary: #f5f5f5;
+$senary: #cecece;
+$septenary: #9ca3af;
 
 //Variaveis Bootstrap
 $font-family-base: 'Inter', sans-serif;
 
-
 //Importa Bootstrap
 @import "../../node_modules/bootstrap/scss/bootstrap";
+
+
+
+//Estilos personalizados
+.navbar {
+    background-color: $tertiary !important;
+}
+
+.btn-secondary {
+    color: $quaternary !important;
+    border-color: $primary !important;
+    background-color: $tertiary !important;
+}
+
+.form-login{
+    border: none;
+    background-color: $quinary;
+    
+    .form-control{
+        background-color: $senary;
+        padding: 0.75rem 1rem;
+    }
+}
+
+
