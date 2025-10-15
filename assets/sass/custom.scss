@@ -23,6 +23,14 @@ $font-family-base: 'Inter', sans-serif;
     background-color: $tertiary !important;
 }
 
+.btn{
+    transition: 0.5s ease-in-out !important;
+}
+
+.btn:hover{
+    transform: scale(1.05) !important;
+}
+
 .btn-secondary {
     color: $quaternary !important;
     border-color: $primary !important;
@@ -39,4 +47,18 @@ $font-family-base: 'Inter', sans-serif;
     }
 }
 
+.link-nav{
+    text-decoration: none;
+    color: $quaternary;
+    transition: 0.5s ease-in-out;
+}
+
+.link-nav:hover{
+    transform: scale(1.1);
+    font-weight: bold;
+}
+
+.left-link{
+    margin-right: 10px;
+}
 
