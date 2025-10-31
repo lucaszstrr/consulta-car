@@ -170,6 +170,18 @@ h2 {
     }
 }
 
+.logo-veiculo {
+  width: 90px;
+  height: auto;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .logo-veiculo {
+    width: 100px;
+  }
+}
+
 .link-nav{
     text-decoration: none;
     color: $quaternary;
