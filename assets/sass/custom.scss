@@ -41,6 +41,7 @@ $font-family-base: 'Inter', sans-serif;
     border: none;
     background-color: $quinary;
     
+    
     .form-control{
         background-color: $senary;
         padding: 0.75rem 1rem;
@@ -62,3 +63,6 @@ $font-family-base: 'Inter', sans-serif;
     margin-right: 10px;
 }
 
+.card-veiculo{
+    background-color: $quinary;
+}
