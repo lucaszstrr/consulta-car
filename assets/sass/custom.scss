@@ -42,10 +42,84 @@ $font-family-base: 'Inter', sans-serif;
     background-color: $septenary !important;
 }
 
+.main-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.main-login .form-login {
+  width: 100%;
+  max-width: 480px;
+}
+
+@media (min-width: 768px) {
+  .main-login .form-login {
+    max-width: 550px;
+  }
+}
+
+@media (min-width: 992px) {
+  .main-login .form-login {
+    max-width: 600px;
+  }
+}
+
+.main-cadastro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.main-cadastro .form-login {
+  width: 100%;
+  max-width: 480px;
+}
+
+@media (min-width: 768px) {
+  .main-cadastro .form-login {
+    max-width: 550px;
+  }
+}
+
+@media (min-width: 992px) {
+  .main-cadastro .form-login {
+    max-width: 600px;
+  }
+}
+
+.main-veiculo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.main-veiculo .form-login {
+  width: 100%;
+  max-width: 480px;
+}
+
+@media (min-width: 768px) {
+  .main-veiculo .form-login {
+    max-width: 550px;
+  }
+}
+
+@media (min-width: 992px) {
+  .main-veiculo .form-login {
+    max-width: 600px;
+  }
+}
+
 .form-login{
     border: none;
-    background-color: $quinary;
-    
+    background-color: $quinary;    
     
     .form-control{
         background-color: $senary;
