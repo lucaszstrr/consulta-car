@@ -144,19 +144,30 @@ h2 {
 }
 
 .form-label {
-  font-size: 1rem;
+    font-size: 1rem;
 }
 
 @media (min-width: 768px) {
-  .form-label {
-    font-size: 1.1rem;
-  }
+    .form-label {
+        font-size: 1.1rem;
+    }
 }
 
 @media (min-width: 992px) {
-  .form-label {
-    font-size: 1.25rem;
-  }
+    .form-label {
+        font-size: 1.25rem;
+    }
+}
+
+.logo-navbar {
+    height: 50px;
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
+    .logo-navbar {
+        height: 60px;
+    }
 }
 
 .link-nav{
