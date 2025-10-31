@@ -37,6 +37,11 @@ $font-family-base: 'Inter', sans-serif;
     background-color: $tertiary !important;
 }
 
+.btn-success {
+    border: none !important;
+    background-color: $septenary !important;
+}
+
 .form-login{
     border: none;
     background-color: $quinary;
