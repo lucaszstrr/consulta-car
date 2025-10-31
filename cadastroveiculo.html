@@ -37,6 +37,7 @@
 
     <main class="d-flex align-items-center justify-content-center vh-100">
         <div class="card p-4 p-md-5 shadow-sm form-login w-100" style="max-width: 480px; min-height: 500px;">
+           
             <h2 class="text-center mb-4">Cadastro de veículo</h2>
             <form class="d-flex flex-column justify-content-center h-100">
 
@@ -62,7 +63,12 @@
 
                 <div class="mb-3">
                     <label for="modelo" class="form-label">Modelo</label>
-                    <input type="text" class="form-control" id="modelo" placeholder="Insira o modelo aqui" required>
+                    <select id="modelo" class="form-control" required>
+                        <option value="">Selecione</option>
+                        <option value="Modelo X">Modelo X</option>
+                        <option value="Modelo Y">Modelo Y</option>
+                        <option value="Modelo Z">Modelo Z</option>
+                    </select>
                 </div>
 
                 <div class="mb-3">
