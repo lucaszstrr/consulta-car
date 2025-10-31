@@ -17,12 +17,13 @@ O sistema permite visualizar detalhes dos automóveis, acessar preços, cadastra
 ---
 
 ## 🖌️ Design System
-[🔗 Link para o documento do Design System]()
+[🔗 Link para o documento do Design System](https://www.figma.com/design/WlsmbCIjGh5ClupMxbRhWG/ConsultaCar?node-id=26-63&p=f&t=lnyffIK2SJVawS0i-0)
 
 ---
 
 ## 🎯 Framework CSS
 **Bootstrap 5**
+**SaSS**
 
 ---
 
@@ -39,17 +40,17 @@ O sistema permite visualizar detalhes dos automóveis, acessar preços, cadastra
 
 ## ✅ Checklist de Funcionalidades
 
-- [] **RA1** - Utilizar Frameworks CSS para estilização de elementos HTML e criação de layouts responsivos.  
-- [] **ID 01** - Prototipa interfaces adaptáveis para no mínimo os tamanhos de tela mobile e desktop.  
-- [] **ID 02** - Implementa layout responsivo com Framework CSS (Tailwind + DaisyUI).  
-- [] **ID 03** - Implementa layout responsivo com CSS puro.  
-- [] **ID 04** - Utiliza componentes prontos do Framework CSS (cards, botões, modais).  
-- [] **ID 05** - Cria layout fluido usando unidades relativas.  
-- [] **ID 06** - Aplica um Design System consistente.  
-- [] **ID 07** - Utiliza pré-processadores CSS (Sass/SCSS).  
-- [] **ID 08** - Aplica tipografia responsiva ou fluida.  
-- [] **ID 09** - Aplica técnicas de responsividade de imagens.  
-- [] **ID 10** - Otimiza imagens com formatos modernos (WebP).  
+- [X] **RA1** - Utilizar Frameworks CSS para estilização de elementos HTML e criação de layouts responsivos.  
+- [X] **ID 01** - Prototipa interfaces adaptáveis para no mínimo os tamanhos de tela mobile e desktop.  
+- [X] **ID 02** - Implementa layout responsivo com Framework CSS.  
+- [X] **ID 03** - Implementa layout responsivo com CSS puro.  
+- [X] **ID 04** - Utiliza componentes prontos do Framework CSS (cards, botões, modais).  
+- [X] **ID 05** - Cria layout fluido usando unidades relativas.  
+- [X] **ID 06** - Aplica um Design System consistente.  
+- [X] **ID 07** - Utiliza pré-processadores CSS (Sass/SCSS).  
+- [X] **ID 08** - Aplica tipografia responsiva ou fluida.  
+- [X] **ID 09** - Aplica técnicas de responsividade de imagens.  
+- [X] **ID 10** - Otimiza imagens com formatos modernos (WebP).  
 
 - [] **RA2** - Realizar tratamento de formulários e aplicar validações customizadas no lado cliente.  
 - [] **ID 11** - Implementa validação HTML nativa.  
@@ -57,11 +58,11 @@ O sistema permite visualizar detalhes dos automóveis, acessar preços, cadastra
 - [] **ID 13** - Utiliza elementos de seleção em formulários (checkbox, radio, select).  
 - [] **ID 14** - Implementa leitura e escrita no Web Storage.  
 
-- [] **RA3** - Aplicar ferramentas para otimização do processo de desenvolvimento web.  
-- [] **ID 15** - Configura ambiente com Node.js e NPM.  
-- [] **ID 16** - Utiliza boas práticas de versionamento no Git/GitHub.  
-- [] **ID 17** - Mantém um README.md padronizado.  
-- [] **ID 18** - Organiza arquivos do projeto de forma modular.  
+- [X] **RA3** - Aplicar ferramentas para otimização do processo de desenvolvimento web.  
+- [X] **ID 15** - Configura ambiente com Node.js e NPM.  
+- [X] **ID 16** - Utiliza boas práticas de versionamento no Git/GitHub.  
+- [X] **ID 17** - Mantém um README.md padronizado.  
+- [X] **ID 18** - Organiza arquivos do projeto de forma modular.  
 - [] **ID 19** - Configura linters e formatadores (ESLint, Prettier).  
 
 - [] **RA4** - Aplicar bibliotecas de funções e componentes em JavaScript.  
