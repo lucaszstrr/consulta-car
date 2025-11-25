@@ -6,13 +6,15 @@ document.getElementById('formLogin').addEventListener('submit', function(e){
 
     const users = JSON.parse(localStorage.getItem('users')) || [];
 
-    const user = users.find(user => user.email == email && user.senha == senha);
+    const user = users.find(user => user.email === email && user.senha === senha);
 
     let loginSucesso = false;
     const msgTexto = document.getElementById("msgTexto");
 
+
     if (user) {
 
+        localStorage.setItem("usuarioLogado", JSON.stringify(user));
         msgTexto.textContent = "Login realizado com sucesso!";
         loginSucesso = true;
 
