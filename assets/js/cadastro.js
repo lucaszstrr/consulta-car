@@ -43,7 +43,8 @@ document.getElementById('formCadastro').addEventListener('submit', function(e){
         
         } else {
 
-            users.push({ nome, email, senha, cep });
+            let veiculos = [];
+            users.push({ nome, email, senha, cep, veiculos });
             localStorage.setItem("users", JSON.stringify(users));
             mensagem = "Cadastro realizado com sucesso!";
             redirect = true;
