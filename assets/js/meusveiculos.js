@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 //monta os cards dos veiculos
 function montarCardsVeiculos(veiculos) {
     const cardVeiculos = document.getElementById('veiculosAdicionados');
-    cardVeiculos.innerHTML = ''; // limpa container antes
+    cardVeiculos.innerHTML = '';
 
     veiculos.forEach(veiculo => {
         const logoURL = `https://logo.clearbit.com/${veiculo.marca.toLowerCase()}.com`;
