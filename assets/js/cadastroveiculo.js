@@ -86,10 +86,52 @@ document.getElementById('formVeiculo').addEventListener('submit', function(e){
     const ano = anoSelect.value;
     const placa = document.getElementById('placa').value.trim().toUpperCase();
 
-    console.log(tipoString);
-    console.log(marca);
-    console.log(modelo);
-    console.log(ano);
-    console.log(placa);
+    let usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+    let users = JSON.parse(localStorage.getItem('users')) || [];
 
+    // Consulta da fipe
+    fetch(`https://parallelum.com.br/fipe/api/v1/${tipoSelect.value}/marcas/${marcaSelect.value}/modelos/${modeloSelect.value}/anos/${ano}`)
+    .then(res => res.json())
+    .then(dados => {
+        const valorFipe = dados.Valor || 'Não disponível';
+
+        const novoVeiculo = {
+            tipo: tipoString,
+            marca,
+            modelo,
+            ano,
+            placa,
+            valor: valorFipe
+        };
+
+        usuarioLogado.veiculos.push(novoVeiculo);
+
+        users = users.map(u => {
+            if (u.email === usuarioLogado.email) {
+                return usuarioLogado;
+            }
+            return u;
+        });
+
+        localStorage.setItem('users', JSON.stringify(users));
+        localStorage.setItem('usuarioLogado', JSON.stringify(usuarioLogado));
+
+        const msgTexto = document.getElementById('msgTexto');
+        msgTexto.textContent = 'Veículo cadastrado com sucesso!';
+
+        const modal = new bootstrap.Modal(document.getElementById('mensagemModal'));
+        modal.show();
+
+        const modalElement = document.getElementById('mensagemModal');
+        modalElement.addEventListener('hidden.bs.modal', function () {
+            window.location.href = 'meusveiculos.html';
+        }, { once: true });
+    })
+    .catch(() => {
+        const msgTexto = document.getElementById('msgTexto');
+        msgTexto.textContent = 'Erro ao obter valor FIPE. Tente novamente.';
+
+        const modal = new bootstrap.Modal(document.getElementById('mensagemModal'));
+        modal.show();
+    });
 });
