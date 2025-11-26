@@ -7,6 +7,24 @@ $(document).ready( function(){
     });
 });
 
+//validacao pra ver se tem algum usuario logado
+const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+
+if (!usuarioLogado){    
+    window.location.href = "login.html";
+}
+
+//aqui verifica se e edicao ou nao
+const indiceEdicao = localStorage.getItem('indiceEdicaoVeiculo');
+
+let veiculoEdicao = null;
+
+if (indiceEdicao !== null) {
+    const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+    veiculoEdicao = usuarioLogado.veiculos[indiceEdicao];
+}
+
+
 const tipoSelect = document.getElementById("tipo");
 const marcaSelect = document.getElementById("marca");
 const modeloSelect = document.getElementById("modelo");
@@ -104,7 +122,12 @@ document.getElementById('formVeiculo').addEventListener('submit', function(e){
             valor: valorFipe
         };
 
-        usuarioLogado.veiculos.push(novoVeiculo);
+        if (indiceEdicao !== null) {
+            usuarioLogado.veiculos[indiceEdicao] = novoVeiculo;
+            localStorage.removeItem('indiceEdicaoVeiculo');
+        } else {
+            usuarioLogado.veiculos.push(novoVeiculo);
+        }
 
         users = users.map(u => {
             if (u.email === usuarioLogado.email) {
