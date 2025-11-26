@@ -9,7 +9,7 @@
 ## 📌 Descrição do Projeto
 
 O **ConsultaCar** é uma aplicação web desenvolvida para facilitar a busca e consulta de veículos, baseada em informações de uma API da Tabela FIPE.  
-O sistema permite visualizar detalhes dos automóveis, acessar preços, cadastrar usuários com validação de CEP e navegar em uma interface moderna e responsiva.
+O sistema permite que o usuário se cadastre na plataforma e adicione seus veículos, desde motos, carros até caminhões, tendo a possibilidade de consultar o preço atualizado da Tabela FIPE de cada um deles. O usuário pode cadastrar novos veículos, editar veículos existentes e excluí-los, também pode acessar a página de relatório se o mesmo quiser uma visão geral de todos os veículos pertencentes, tudo isso navegando em uma interface moderna, intuitiva e responsiva.
 
 ---
 
