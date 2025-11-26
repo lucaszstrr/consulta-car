@@ -1,3 +1,10 @@
+//validacao pra ver se tem algum usuario logado
+const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+
+if (!usuarioLogado){    
+    window.location.href = "login.html";
+}
+
 //carrega os veiculos ou dá a msg de sem veículos adicionados
 document.addEventListener('DOMContentLoaded', function() {
     let usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
@@ -19,6 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function montarCardsVeiculos(veiculos) {
     const cardVeiculos = document.getElementById('veiculosAdicionados');
     cardVeiculos.innerHTML = '';
+
+    let index = 0;
 
     veiculos.forEach(veiculo => {
         const logoURL = `https://logo.clearbit.com/${veiculo.marca.toLowerCase()}.com`;
@@ -43,13 +52,44 @@ function montarCardsVeiculos(veiculos) {
                         <p><strong>Placa:</strong> ${veiculo.placa}</p>
 
                         <div class="mt-3 d-flex gap-2">
-                            <button class="btn btn-sm btn-success">Editar</button>
-                            <button class="btn btn-sm btn-primary">Excluir</button>
+                            <button data-indice="${index}" class="btn btn-sm btn-success btn-editar">Editar</button>
+                            <button data-indice="${index}" class="btn btn-sm btn-primary btn-excluir">Excluir</button>
                         </div>
                     </div>
                 </div>
             </div>
         `;
+        index++;
         cardVeiculos.insertAdjacentHTML('beforeend', card);
     });
 };
+
+document.getElementById('veiculosAdicionados').addEventListener('click', function(e) {
+    if (e.target.classList.contains('btn-editar')) {
+        const indice = e.target.getAttribute('data-indice');
+        editarVeiculo(parseInt(indice));
+    }
+    
+    if (e.target.classList.contains('btn-excluir')) {
+        const indice = e.target.getAttribute('data-indice');
+        excluirVeiculo(parseInt(indice));
+    }
+});
+
+function excluirVeiculo(indice) {
+    let usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+
+    usuarioLogado.veiculos.splice(indice, 1);
+    users = users.map(u => u.email === usuarioLogado.email ? usuarioLogado : u);
+
+    localStorage.setItem('users', JSON.stringify(users));
+    localStorage.setItem('usuarioLogado', JSON.stringify(usuarioLogado));
+
+    montarCardsVeiculos(usuarioLogado.veiculos);
+}
+
+function editarVeiculo(indice) {
+    localStorage.setItem('indiceEdicaoVeiculo', indice);
+    window.location.href = 'cadastroveiculo.html';
+}
