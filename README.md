@@ -112,3 +112,21 @@ O sistema permite que o usuário se cadastre na plataforma e adicione seus veíc
 6. **Relatório** (`relatorioveiculos.html`) - **Dashboard**
     - Total de: Veículos, Carros, Motos, Caminhões
     - Valor total estimado (soma FIPE)
+
+
+## 🖼️ Imagens:
+
+![Screenshot](https://imgur.com/Mp94odm);
+
+![Screenshot](https://imgur.com/0ZqApEg);
+
+![Screenshot](https://imgur.com/Ss4NIhD);
+
+![Screenshot](https://imgur.com/RRjuLEP);
+
+![Screenshot](https://imgur.com/OcgJHIK);
+
+![Screenshot](https://imgur.com/LuW88hx);
+
+![Screenshot](https://imgur.com/JldHUj2);
+
