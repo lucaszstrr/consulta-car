@@ -84,3 +84,31 @@ O sistema permite que o usuário se cadastre na plataforma e adicione seus veíc
 - [x] **ID 24** - Consome APIs públicas (ex.: ViaCEP).
 
 ---
+
+## 🚀 Como rodar:
+1. Execute `npm install` no terminal
+2. Execute `npm run dev` no terminal (abre automaticamente no navegador)
+
+## 📱 **O QUE FAZER NO CONSULTACAR**
+1. **Página Inicial** (`index.html`)
+    - Clique em **[Cadastrar]** para criar conta
+    - Ou **[Entrar]** se já tem conta
+2.  **Cadastro de Usuário** (`cadastro.html`)
+    - Preencha: Nome, Email, Senha, CEP
+    - O CEP é validado automaticamente via API ViaCEP
+    - Clique: [CADASTRAR]
+3. **Login** (`login.html`)
+    - Digite: Email e Senha
+    - Clique: [ENTRAR]
+4. **Meus Veículos** (`meusveiculos.html`) - **PÁGINA PROTEGIDA**
+    - Veja lista de veículos cadastrados
+    - Clique: [+ CADASTRAR VEÍCULO] ou botão na navbar
+    - Botões: [Editar] / [Excluir] em cada veículo
+5. **Cadastro de Veículo** (`cadastroveiculo.html`)
+    - Selecione: TIPO (Carro/Moto/Caminhão)
+    - API FIPE carrega: Marcas → Modelos → Anos → Valor FIPE
+    - Digite: Placa (com máscara automática)(opcional)
+    - Clique: [CADASTRAR VEÍCULO]
+6. **Relatório** (`relatorioveiculos.html`) - **Dashboard**
+    - Total de: Veículos, Carros, Motos, Caminhões
+    - Valor total estimado (soma FIPE)
