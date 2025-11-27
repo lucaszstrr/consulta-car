@@ -1,12 +1,12 @@
 //validacao pra ver se tem algum usuario logado
 const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
 
-if (!usuarioLogado){    
-    window.location.href = "login.html";
+if (!usuarioLogado) {
+    window.location.href = 'login.html';
 }
 
 //carrega os veiculos ou dá a msg de sem veículos adicionados
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     let usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
 
     const cardVeiculos = document.getElementById('veiculosAdicionados');
@@ -29,7 +29,7 @@ function montarCardsVeiculos(veiculos) {
 
     let index = 0;
 
-    veiculos.forEach(veiculo => {
+    veiculos.forEach((veiculo) => {
         const logoURL = `https://logo.clearbit.com/${veiculo.marca.toLowerCase()}.com`;
 
         const card = `
@@ -62,14 +62,14 @@ function montarCardsVeiculos(veiculos) {
         index++;
         cardVeiculos.insertAdjacentHTML('beforeend', card);
     });
-};
+}
 
-document.getElementById('veiculosAdicionados').addEventListener('click', function(e) {
+document.getElementById('veiculosAdicionados').addEventListener('click', function (e) {
     if (e.target.classList.contains('btn-editar')) {
         const indice = e.target.getAttribute('data-indice');
         editarVeiculo(parseInt(indice));
     }
-    
+
     if (e.target.classList.contains('btn-excluir')) {
         const indice = e.target.getAttribute('data-indice');
         excluirVeiculo(parseInt(indice));
@@ -81,7 +81,7 @@ function excluirVeiculo(indice) {
     let users = JSON.parse(localStorage.getItem('users')) || [];
 
     usuarioLogado.veiculos.splice(indice, 1);
-    users = users.map(u => u.email === usuarioLogado.email ? usuarioLogado : u);
+    users = users.map((u) => (u.email === usuarioLogado.email ? usuarioLogado : u));
 
     localStorage.setItem('users', JSON.stringify(users));
     localStorage.setItem('usuarioLogado', JSON.stringify(usuarioLogado));

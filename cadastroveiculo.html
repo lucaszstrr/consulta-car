@@ -1,109 +1,111 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ConsultaCar - Cadastro de Veículo</title>
-    <link rel="stylesheet" href="assets/css/custom.css">
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="index.html">
-                    <img src="assets/img/logo.png" alt="ConsultaCar" class="logo-navbar me-2" loading="lazy">
-                </a>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ConsultaCar - Cadastro de Veículo</title>
+        <link rel="stylesheet" href="assets/css/custom.css" />
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container">
+                    <a class="navbar-brand d-flex align-items-center" href="index.html">
+                        <img src="assets/img/logo.png" alt="ConsultaCar" class="logo-navbar me-2" loading="lazy" />
+                    </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="link-nav left-link" href="cadastroveiculo.html">Cadastrar Veículo</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="link-nav left-link" href="meusveiculos.html">Meus Veículos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="link-nav" href="relatorioveiculos.html">Relatório Veículos</a>
-                        </li>
-                    </ul>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="link-nav left-link" href="cadastroveiculo.html">Cadastrar Veículo</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="link-nav left-link" href="meusveiculos.html">Meus Veículos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="link-nav" href="relatorioveiculos.html">Relatório Veículos</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="main-veiculo">
+            <div class="card p-4 p-md-5 shadow-sm form-login" style="min-height: 500px">
+                <h2 class="text-center mb-4">Cadastro de veículo</h2>
+                <form class="d-flex flex-column justify-content-center h-100" id="formVeiculo">
+                    <div class="mb-3">
+                        <label for="tipo" class="form-label">Tipo</label>
+                        <select id="tipo" class="form-control" required>
+                            <option value="">Selecione</option>
+                            <option value="carros">Carro</option>
+                            <option value="motos">Moto</option>
+                            <option value="caminhoes">Caminhão</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="marca" class="form-label">Marca</label>
+                        <select id="marca" class="form-control" disabled>
+                            <option value="">Selecione o tipo primeiro</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="modelo" class="form-label">Modelo</label>
+                        <select id="modelo" class="form-control" disabled>
+                            <option value="">Selecione a marca primeiro</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="ano" class="form-label">Ano</label>
+                        <select id="ano" class="form-control" disabled>
+                            <option value="">Selecione o modelo primeiro</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="placa" class="form-label">Placa</label>
+                        <input type="text" class="form-control" id="placa" placeholder="Insira a placa aqui" />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 mt-2">Cadastrar</button>
+                </form>
+            </div>
+        </main>
+
+        <div class="modal fade" id="mensagemModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="messageModalLabel">Mensagem</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body" id="msgTexto"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
-
-    <main class="main-veiculo">
-        <div class="card p-4 p-md-5 shadow-sm form-login" style="min-height: 500px;">
-
-            <h2 class="text-center mb-4">Cadastro de veículo</h2>
-            <form class="d-flex flex-column justify-content-center h-100" id="formVeiculo">
-
-                <div class="mb-3">
-                    <label for="tipo" class="form-label">Tipo</label>
-                    <select id="tipo" class="form-control" required>
-                        <option value="">Selecione</option>
-                        <option value="carros">Carro</option>
-                        <option value="motos">Moto</option>
-                        <option value="caminhoes">Caminhão</option>
-                    </select>
-                </div>
-
-                <div class="mb-3">
-                    <label for="marca" class="form-label">Marca</label>
-                    <select id="marca" class="form-control" disabled>
-                        <option value="">Selecione o tipo primeiro</option>
-                    </select>
-                </div>
-
-                <div class="mb-3">
-                    <label for="modelo" class="form-label">Modelo</label>
-                    <select id="modelo" class="form-control" disabled>
-                        <option value="">Selecione a marca primeiro</option>
-                    </select>
-                </div>
-
-                <div class="mb-3">
-                    <label for="ano" class="form-label">Ano</label>
-                    <select id="ano" class="form-control" disabled>
-                        <option value="">Selecione o modelo primeiro</option>
-                    </select>
-                </div>
-
-                <div class="mb-3">
-                    <label for="placa" class="form-label">Placa</label>
-                    <input type="text" class="form-control" id="placa" placeholder="Insira a placa aqui">
-                </div>
-
-                <button type="submit" class="btn btn-primary w-100 mt-2">Cadastrar</button>
-            </form>
         </div>
-    </main>
 
-    <div class="modal fade" id="mensagemModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="messageModalLabel">Mensagem</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                </div>
-                <div class="modal-body" id="msgTexto">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    <script src="assets/js/cadastroveiculo.js"></script>
-</body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+        <script src="assets/js/cadastroveiculo.js"></script>
+    </body>
 </html>

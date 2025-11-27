@@ -1,17 +1,17 @@
 //Mascara para o campo de placa aceitar os dois tipos, mercosul e padrao
-$(document).ready( function(){
+$(document).ready(function () {
     $('#placa').mask('AAA0B00', {
         translation: {
-            'B': { pattern: /[A-Za-z\d/]/ }
-        }
+            B: { pattern: /[A-Za-z\d/]/ },
+        },
     });
 });
 
 //validacao pra ver se tem algum usuario logado
 const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
 
-if (!usuarioLogado){    
-    window.location.href = "login.html";
+if (!usuarioLogado) {
+    window.location.href = 'login.html';
 }
 
 //aqui verifica se e edicao ou nao
@@ -24,15 +24,14 @@ if (indiceEdicao !== null) {
     veiculoEdicao = usuarioLogado.veiculos[indiceEdicao];
 }
 
+const tipoSelect = document.getElementById('tipo');
+const marcaSelect = document.getElementById('marca');
+const modeloSelect = document.getElementById('modelo');
+const anoSelect = document.getElementById('ano');
 
-const tipoSelect = document.getElementById("tipo");
-const marcaSelect = document.getElementById("marca");
-const modeloSelect = document.getElementById("modelo");
-const anoSelect = document.getElementById("ano");
+let tipoString = '';
 
-let tipoString = "";
-
-tipoSelect.addEventListener("change", async () => {
+tipoSelect.addEventListener('change', async () => {
     const tipo = tipoSelect.value;
     marcaSelect.innerHTML = '<option value="">Carregando marcas...</option>';
     modeloSelect.innerHTML = '<option value="">Selecione a marca primeiro</option>';
@@ -47,8 +46,8 @@ tipoSelect.addEventListener("change", async () => {
     const marcas = await res.json();
 
     marcaSelect.innerHTML = '<option value="">Selecione a marca</option>';
-    marcas.forEach(m => {
-        marcaSelect.innerHTML += `<option value="${m.codigo}" data-nome="${(m.nome).toUpperCase()}">${(m.nome).toUpperCase()}</option>`;
+    marcas.forEach((m) => {
+        marcaSelect.innerHTML += `<option value="${m.codigo}" data-nome="${m.nome.toUpperCase()}">${m.nome.toUpperCase()}</option>`;
     });
 
     if (tipo == 'carros') tipoString = 'Carro';
@@ -59,7 +58,7 @@ tipoSelect.addEventListener("change", async () => {
     marcaSelect.required = true;
 });
 
-marcaSelect.addEventListener("change", async () => {
+marcaSelect.addEventListener('change', async () => {
     const tipo = tipoSelect.value;
     const marca = marcaSelect.value;
     modeloSelect.innerHTML = '<option value="">Carregando modelos...</option>';
@@ -69,15 +68,15 @@ marcaSelect.addEventListener("change", async () => {
     const data = await res.json();
 
     modeloSelect.innerHTML = '<option value="">Selecione o modelo</option>';
-    data.modelos.forEach(m => {
-        modeloSelect.innerHTML += `<option value="${m.codigo}" data-nome="${(m.nome).toUpperCase()}">${(m.nome).toUpperCase()}</option>`;
+    data.modelos.forEach((m) => {
+        modeloSelect.innerHTML += `<option value="${m.codigo}" data-nome="${m.nome.toUpperCase()}">${m.nome.toUpperCase()}</option>`;
     });
 
     modeloSelect.disabled = false;
     modeloSelect.required = true;
 });
 
-modeloSelect.addEventListener("change", async () => {
+modeloSelect.addEventListener('change', async () => {
     const tipo = tipoSelect.value;
     const marca = marcaSelect.value;
     const modelo = modeloSelect.value;
@@ -88,7 +87,7 @@ modeloSelect.addEventListener("change", async () => {
     const anos = await res.json();
 
     anoSelect.innerHTML = '<option value="">Selecione o ano</option>';
-    anos.forEach(a => {
+    anos.forEach((a) => {
         anoSelect.innerHTML += `<option value="${a.codigo}">${a.nome}</option>`;
     });
 
@@ -96,7 +95,7 @@ modeloSelect.addEventListener("change", async () => {
     anoSelect.required = true;
 });
 
-document.getElementById('formVeiculo').addEventListener('submit', function(e){
+document.getElementById('formVeiculo').addEventListener('submit', function (e) {
     e.preventDefault();
 
     const marca = marcaSelect.options[marcaSelect.selectedIndex].dataset.nome;
@@ -108,53 +107,59 @@ document.getElementById('formVeiculo').addEventListener('submit', function(e){
     let users = JSON.parse(localStorage.getItem('users')) || [];
 
     // Consulta da fipe
-    fetch(`https://parallelum.com.br/fipe/api/v1/${tipoSelect.value}/marcas/${marcaSelect.value}/modelos/${modeloSelect.value}/anos/${ano}`)
-    .then(res => res.json())
-    .then(dados => {
-        const valorFipe = dados.Valor || 'Não disponível';
+    fetch(
+        `https://parallelum.com.br/fipe/api/v1/${tipoSelect.value}/marcas/${marcaSelect.value}/modelos/${modeloSelect.value}/anos/${ano}`
+    )
+        .then((res) => res.json())
+        .then((dados) => {
+            const valorFipe = dados.Valor || 'Não disponível';
 
-        const novoVeiculo = {
-            tipo: tipoString,
-            marca,
-            modelo,
-            ano,
-            placa,
-            valor: valorFipe
-        };
+            const novoVeiculo = {
+                tipo: tipoString,
+                marca,
+                modelo,
+                ano,
+                placa,
+                valor: valorFipe,
+            };
 
-        if (indiceEdicao !== null) {
-            usuarioLogado.veiculos[indiceEdicao] = novoVeiculo;
-            localStorage.removeItem('indiceEdicaoVeiculo');
-        } else {
-            usuarioLogado.veiculos.push(novoVeiculo);
-        }
-
-        users = users.map(u => {
-            if (u.email === usuarioLogado.email) {
-                return usuarioLogado;
+            if (indiceEdicao !== null) {
+                usuarioLogado.veiculos[indiceEdicao] = novoVeiculo;
+                localStorage.removeItem('indiceEdicaoVeiculo');
+            } else {
+                usuarioLogado.veiculos.push(novoVeiculo);
             }
-            return u;
+
+            users = users.map((u) => {
+                if (u.email === usuarioLogado.email) {
+                    return usuarioLogado;
+                }
+                return u;
+            });
+
+            localStorage.setItem('users', JSON.stringify(users));
+            localStorage.setItem('usuarioLogado', JSON.stringify(usuarioLogado));
+
+            const msgTexto = document.getElementById('msgTexto');
+            msgTexto.textContent = 'Veículo cadastrado com sucesso!';
+
+            const modal = new bootstrap.Modal(document.getElementById('mensagemModal'));
+            modal.show();
+
+            const modalElement = document.getElementById('mensagemModal');
+            modalElement.addEventListener(
+                'hidden.bs.modal',
+                function () {
+                    window.location.href = 'meusveiculos.html';
+                },
+                { once: true }
+            );
+        })
+        .catch(() => {
+            const msgTexto = document.getElementById('msgTexto');
+            msgTexto.textContent = 'Erro ao obter valor FIPE. Tente novamente.';
+
+            const modal = new bootstrap.Modal(document.getElementById('mensagemModal'));
+            modal.show();
         });
-
-        localStorage.setItem('users', JSON.stringify(users));
-        localStorage.setItem('usuarioLogado', JSON.stringify(usuarioLogado));
-
-        const msgTexto = document.getElementById('msgTexto');
-        msgTexto.textContent = 'Veículo cadastrado com sucesso!';
-
-        const modal = new bootstrap.Modal(document.getElementById('mensagemModal'));
-        modal.show();
-
-        const modalElement = document.getElementById('mensagemModal');
-        modalElement.addEventListener('hidden.bs.modal', function () {
-            window.location.href = 'meusveiculos.html';
-        }, { once: true });
-    })
-    .catch(() => {
-        const msgTexto = document.getElementById('msgTexto');
-        msgTexto.textContent = 'Erro ao obter valor FIPE. Tente novamente.';
-
-        const modal = new bootstrap.Modal(document.getElementById('mensagemModal'));
-        modal.show();
-    });
 });
