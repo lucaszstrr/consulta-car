@@ -116,17 +116,17 @@ O sistema permite que o usuário se cadastre na plataforma e adicione seus veíc
 
 ## 🖼️ Imagens:
 
-![Screenshot](https://i.imgur.com/Mp94odm.png);
+![Screenshot](https://i.imgur.com/Mp94odm.png)
 
-![Screenshot](https://i.imgur.com/0ZqApEg.png);
+![Screenshot](https://i.imgur.com/0ZqApEg.png)
 
-![Screenshot](https://i.imgur.com/Ss4NIhD.png);
+![Screenshot](https://i.imgur.com/Ss4NIhD.png)
 
-![Screenshot](https://i.imgur.com/RRjuLEP.png);
+![Screenshot](https://i.imgur.com/RRjuLEP.png)
 
-![Screenshot](https://i.imgur.com/OcgJHIK.png);
+![Screenshot](https://i.imgur.com/OcgJHIK.png)
 
-![Screenshot](https://i.imgur.com/LuW88hx.png);
+![Screenshot](https://i.imgur.com/LuW88hx.png)
 
-![Screenshot](https://i.imgur.com/JldHUj2.png);
+![Screenshot](https://i.imgur.com/JldHUj2.png)
 
