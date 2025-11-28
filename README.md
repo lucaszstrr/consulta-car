@@ -63,7 +63,7 @@ O sistema permite que o usuário se cadastre na plataforma e adicione seus veíc
 
 - [x] **RA2** - Realizar tratamento de formulários e aplicar validações customizadas no lado cliente.
 - [x] **ID 11** - Validação HTML nativa (campos obrigatórios, tipos, limites) com mensagens de erro/sucesso.
-- [x] **ID 12** - Expressões regulares (REGEX) para validações customizadas (e-mail, telefone, datas, etc.).
+- [ ] **ID 12** - Expressões regulares (REGEX) para validações customizadas (e-mail, telefone, datas, etc.).
 - [x] **ID 13** - Utiliza elementos de seleção em formulários (checkbox, radio, select).
 - [x] **ID 14** - Leitura e escrita no Web Storage (localStorage/sessionStorage).
 
