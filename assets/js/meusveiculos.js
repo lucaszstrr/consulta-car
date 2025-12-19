@@ -30,7 +30,7 @@ function montarCardsVeiculos(veiculos) {
     let index = 0;
 
     veiculos.forEach((veiculo) => {
-        const logoURL = `https://logo.clearbit.com/${veiculo.marca.toLowerCase()}.com`;
+        const logoURL = `https://logos-api.apistemic.com/domain:${veiculo.marca.toLowerCase()}.com`;
 
         const card = `
             <div class="border-0 card-veiculo card p-4 d-flex flex-column flex-md-row align-items-center align-items-md-start mb-3 shadow-sm rounded-4 mx-auto"
